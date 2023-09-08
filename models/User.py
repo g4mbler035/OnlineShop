@@ -9,7 +9,7 @@ class User(Base):
     first_name = Column("first_name", String)
     last_name = Column("last_name", String)
     email = Column("email", String)
-    list_of_items = Column("list_of_items", ARRAY(Integer))
+    list_of_items = Column("list_of_items", ARRAY(Integer), ForeignKey("item.id"))
 
     def __init__(self, id, first_name, last_name, email, list_of_items):
         self.id = id

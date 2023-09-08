@@ -10,7 +10,7 @@ class Item(Base):
     name = Column("name", String)
     price = Column("price", Float)
     quantity = Column("quantity", Integer)
-    cart_id = Column("cart_id", Integer)
+    cart_id = Column("cart_id", Integer, ForeignKey("cart.id"))
 
     def __init__(self, id, name, price, quantity, cart_id):
         self.id = id
