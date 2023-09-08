@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, Integer, CHAR, Float
+from sqlalchemy import Column, Integer, ARRAY, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
@@ -7,7 +7,7 @@ Base = declarative_base()
 class Cart(Base):
     __tablename__ = "cart"
     id = Column("id", Integer, primary_key=True)
-    list_of_items = Column("list_of_items", String)
+    list_of_items = Column("list_of_items", ARRAY(Integer))
 
     def __init__(self, id, list_of_items):
         self.id = id

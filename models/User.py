@@ -1,6 +1,5 @@
-from sqlalchemy import Column, String, Integer, CHAR
+from sqlalchemy import Column, String, Integer, ARRAY, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
-
 Base = declarative_base()
 
 
@@ -10,7 +9,7 @@ class User(Base):
     first_name = Column("first_name", String)
     last_name = Column("last_name", String)
     email = Column("email", String)
-    list_of_items = Column("list_of_items", )
+    list_of_items = Column("list_of_items", ARRAY(Integer))
 
     def __init__(self, id, first_name, last_name, email, list_of_items):
         self.id = id
